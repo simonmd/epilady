@@ -50,4 +50,105 @@ ActiveRecord::Schema.define(:version => 20121213190406) do
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
+  create_table "conclusions", :force => true do |t|
+    t.text     "observaciones"
+    t.string   "rm"
+    t.text     "sospecha"
+    t.string   "correlacion"
+    t.integer  "report_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "conclusions", ["report_id"], :name => "index_conclusions_on_report_id"
+
+  create_table "displasia", :force => true do |t|
+    t.string   "hiperintensidad"
+    t.string   "diferencicacion_grisblanca"
+    t.string   "engrosamiento"
+    t.string   "transmato"
+    t.string   "circunvoluciones"
+    t.string   "reformateo"
+    t.string   "discircunvolucion"
+    t.string   "dislobulo"
+    t.string   "dishemisferio"
+    t.integer  "report_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "displasia", ["report_id"], :name => "index_displasia_on_report_id"
+
+  create_table "esclerosis", :force => true do |t|
+    t.string   "atrofia_sunj"
+    t.string   "hiperintensidad"
+    t.string   "estructura_anormal"
+    t.string   "esclerosis"
+    t.text     "hallazgos_extra"
+    t.integer  "report_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.float    "volumenhipoder"
+    t.float    "volumenhipoiz"
+  end
+
+  add_index "esclerosis", ["report_id"], :name => "index_esclerosis_on_report_id"
+
+  create_table "malformacions", :force => true do |t|
+    t.string   "centro_hipert"
+    t.string   "senal_peri"
+    t.string   "anillo_hipo"
+    t.string   "vaso"
+    t.string   "hallazgo_mv"
+    t.string   "circunvolucion"
+    t.string   "lobulo"
+    t.string   "hemisferio"
+    t.integer  "report_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "malformacions", ["report_id"], :name => "index_malformacions_on_report_id"
+
+  create_table "patients", :force => true do |t|
+    t.string   "patid"
+    t.string   "name"
+    t.string   "code"
+    t.integer  "age"
+    t.string   "sex"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "infoclinica15"
+    t.text     "infoclinica3"
+  end
+
+  create_table "reports", :force => true do |t|
+    t.string   "accession"
+    t.string   "equipment"
+    t.date     "date"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reports", ["patient_id"], :name => "index_reports_on_patient_id"
+
+  create_table "tumors", :force => true do |t|
+    t.string   "hiperintensidad"
+    t.string   "lesion"
+    t.string   "efecto_masa"
+    t.string   "nodulo"
+    t.string   "calsificaciones"
+    t.text     "hallazgos"
+    t.string   "circunvolucion"
+    t.string   "lobulo"
+    t.string   "hemisferio"
+    t.integer  "report_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "tumors", ["report_id"], :name => "index_tumors_on_report_id"
+
 end

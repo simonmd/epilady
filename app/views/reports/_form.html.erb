@@ -1,0 +1,426 @@
+<%= form_for([@patient, @report]) do |f| %>
+
+<!-- Esclerosis-->
+<h5>1. Esclerosis hipocampal:</h5>
+Zonas a ser inspeccionadas:
+Lóbulo temporal mesial, hipocampo, giro parahipocampal, amígdala
+<h6>Hallazgos a explorar:</h6>
+
+
+<%= f.fields_for :esclerosi, @report.esclerosi do |fescl| %>
+
+<div class="control-group">
+  <!-- <%= fescl.label :atrofia_sunj %>-->
+
+
+<div class= "span7">
+	Volumen del hipocampo al ojo desnudo. Atrofia?
+</div>
+
+  <div class="controls">
+   Derecho:&nbsp <%= check_box_tag "[report][esclerosi_attributes]atrofia_sunj[]","derecho" %>
+	Izquierdo:&nbsp <%= check_box_tag "[report][esclerosi_attributes]atrofia_sunj[]","izquierdo" %>
+  </div>
+</div>
+
+
+<div class="control-group">
+	<div class= "span7">
+	Hiperintensidad en T2 y FLAIR.
+	</div>
+ <!-- <%= fescl.label :hiperintensidad, :class => 'control-label' %>-->
+  <div class="controls">
+    Derecho:&nbsp <%= check_box_tag "[report][esclerosi_attributes][hiperintensidad][]","derecho" %>
+   	Izquierdo:&nbsp <%=check_box_tag "[report][esclerosi_attributes][hiperintensidad][]","izquierdo" %>
+
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Superficie y estructura interna del hipocampo en T1. Anormal?
+		</br>
+	</div>
+  <!--<%= fescl.label :estructura_anormal, :class => 'control-label' %>-->
+  <div class="controls">
+     Derecho:&nbsp <%= check_box_tag "[report][esclerosi_attributes][estructura_anormal][]","derecho" %>
+     Izquierdo:&nbsp <%=check_box_tag "[report][esclerosi_attributes][estructura_anormal][]","izquierdo" %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span6">
+		 Escriba el hallazgo extra hipocampal encontrado:
+	</div>
+  <!--<%= fescl.label :hallazgos_extra, :class => 'control-label' %>-->
+  <div class="controls">
+    <%= fescl.text_area :hallazgos_extra,:size => "10x10", :class => 'text_area' %>
+  </div>
+</div>
+
+
+<div class="control-group">
+
+	<div class= "span5">
+		Tamaño del hipocampo por volumetría:
+	</div>
+ <!-- <%= fescl.label :volumen, :class => 'control-label' %>-->
+
+   <div class="span1"> Derecho: <%= fescl.text_field :volumenhipoder, :class => 'text_field' %></div>&nbsp&nbsp
+	 <div class="span2 offset2">Izquierdo: <%= fescl.text_field :volumenhipoiz, :class => 'text_field'%></div>
+</div>
+</div>
+<h6>Conclusión</h6>
+<div class="control-group">
+
+  <div class="controls">
+	<div class= "span5">
+	Esclerosis hipocampal:
+	</div>
+    Derecha: <%= check_box_tag "[report][esclerosi_attributes][esclerosis][]","derecho" %>&nbsp
+   	Izquierda: <%= check_box_tag "[report][esclerosi_attributes][esclerosis][]","izquierda" %>&nbsp
+  </div>
+</div>
+<%end%>
+
+<!-- Displasia-->
+
+<h5>2. Displasia cortical focal (DCF)</h5>
+Zonas a ser inspeccionadas: Frontal-parietal>temporal>occipital
+<h6>Hallazgos a explorar:</h6>
+
+<%= f.fields_for :displasium, @report.displasium do |fdis| %>
+
+<div class="control-group">
+	<div class= "span7">
+		Hiperintensidad sustancia blanca en FLAIR y T2:
+	</div>
+  <div class="controls">
+      Derecho:&nbsp <%= check_box_tag "[report][displasium_attributes][hiperintensidad][]","derecho" %>
+      Izquierdo:&nbsp <%= check_box_tag "[report][displasium_attributes][hiperintensidad][]","izquierdo" %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Diferenciación de sustancia gris y blanca. Anormal?
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][displasium_attributes][diferencicacion_grisblanca][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][displasium_attributes][diferencicacion_grisblanca][]","izquierdo" %>&nbsp
+  </div>
+</div>
+<div class="control-group">
+	<div class= "span7">
+		 Engrosamiento focal cortical
+	</div>
+  <div class="controls">
+    Derecho:<%= check_box_tag "[report][displasium_attributes][engrosamiento][]","derecho" %>&nbsp
+    Izquierdo:<%= check_box_tag "[report][displasium_attributes][engrosamiento][]", "izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		 Signo transmanto en FLAIR
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][displasium_attributes][transmato][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][displasium_attributes][transmato][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		 Patrón de circunvoluciones y surcos. Anormal?
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][displasium_attributes][circunvoluciones][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][displasium_attributes][circunvoluciones][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+
+	<div class= "span7">
+		 Reformateo curvilíneo: patrón de surcos. Anormal?
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][displasium_attributes][circunvoluciones][]", "derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][displasium_attributes][circunvoluciones][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<h6>Conclusión: Displasia cortical en</h6>
+
+<div class="control-group">
+  <div class="controls">
+	<div class= "span3">
+		 Circunvolución:
+	</div>
+   <%= fdis.text_field :discircunvolucion, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+		 Lóbulo
+	</div>
+  <div class="controls">
+    <%= fdis.text_field :dislobulo, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+		 Hemisferio
+	</div>
+  <div class="controls">
+    <%= fdis.text_field :dishemisferio, :class => 'text_field' %>
+  </div>
+</div>
+
+<% end %>
+
+<!-- Tumor-->
+
+<h5>3. Tumor de bajo grado</h5>
+Zonas a ser inspeccionadas: Todos los lóbulos, predominantemente el lóbulo temporal
+
+<h6>Hallazgos a explorar:</h6>
+
+<%= f.fields_for :tumor, @report.tumor do |ftum| %>
+
+<div class="control-group">
+	<div class= "span7">
+		Hiperintensidad en T2
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][tumor_attributes][hiperintensidad][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][tumor_attributes][hiperintensidad][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Lesión bien definida
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][tumor_attributes][lesion][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][tumor_attributes][lesion][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Efecto de masa
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][tumor_attributes][efecto_masa][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][tumor_attributes][efecto_masa][]", "izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Nódulo o quiste (simple o múltiple)
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][tumor_attributes][nodulo][]", "derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][tumor_attributes][nodulo][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Calcificaciones
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][tumor_attributes][calsificaciones][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][tumor_attributes][calsificaciones][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<h6>Conclusión:</h6>
+<div class="control-group">
+	<div class= "span3">
+	Hallazgos sugestivos de tumor:
+	</div>
+  <div class="controls">
+    <%= ftum.text_area :hallazgos, :size => "10x10", :class => 'text_area' %>
+  </div>
+</div>
+
+<div class="contro-group">
+	<div class= "span3">
+	Ubicado en circunvolución:
+	</div>
+  <div class="controls">
+    <%= ftum.text_field :circunvolucion, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+	Lóbulo:
+	</div>
+  <div class="controls">
+    <%= ftum.text_field :lobulo, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+		<div class= "span3">
+		Hemisferio:
+		</div>
+
+  <div class="controls">
+    <%= ftum.text_field :hemisferio, :class => 'text_field' %>
+  </div>
+</div>
+<%end%>
+
+<!-- Malformacion vascular-->
+<h5>4. Malformación vascular (MV)</h5>
+Zonas a ser inspeccionadas: Todos los lóbulos, en menor proporción el temporal
+<h6>Hallazgos a explorar:</h6>
+
+<%= f.fields_for :malformacion, @report.malformacion do |fmal| %>
+<div class="control-group">
+	<div class= "span7">
+		Centro hiperintenso
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][malformacion_attributes][centro_hipert][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][malformacion_attributes][centro_hipert][]","izquierdo" %>&nbsp
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Señal periférica de vacío
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][malformacion_attributes][senal_peri][]","derecho" %>&nbsp;&nbsp;
+      Izquierdo:<%= check_box_tag "[report][malformacion_attributes][senal_peri][]","izquierdo" %>&nbsp;&nbsp;
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span7">
+		Anillo hipointenso en T2 (deposito de hemosiderina)
+	</div>
+  <div class="controls">
+    Derecho:<%= check_box_tag "[report][malformacion_attributes][anillo_hipo][]","derecho" %>&nbsp
+    Izquierdo:<%= check_box_tag "[report][malformacion_attributes][anillo_hipo][]","izquierdo" %>&nbsp
+	</div>
+</div>
+
+
+<div class="control-group">
+	<div class= "span7">
+		Vaso alimentando la malformación
+	</div>
+  <div class="controls">
+      Derecho:<%= check_box_tag "[report][malformacion_attributes][vaso][]","derecho" %>&nbsp
+      Izquierdo:<%= check_box_tag "[report][malformacion_attributes][vaso][]","izquierdo" %>&nbsp
+  </div>
+</div>
+<h6>Conclusiones:</h6>
+
+
+<div class="control-group">
+		<div class= "span3">
+		Hallazgos sugestivos de MV tipo:
+		</div>
+  <div class="controls">
+    <%= fmal.text_field :hallazgo_mv, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+	Ubicada en la circunvolución:
+	</div>
+  <div class="controls">
+    <%= fmal.text_field :circunvolucion, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+	Lóbulo
+	</div>
+  <div class="controls">
+    <%= fmal.text_field :lobulo, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+	<div class= "span3">
+	Hemisferio
+	</div>
+  <div class="controls">
+    <%= fmal.text_field :hemisferio, :class => 'text_field' %>
+  </div>
+</div>
+<%end%>
+
+<%= f.fields_for :conclusion, @report.conclusion do |fconc| %>
+
+	<div class="control-group">
+		<div class= "span3">
+			Observaciones Adicionales
+		</div>
+
+	  <div class="controls">
+    	  <%= fconc.text_area :observaciones, :size => "10x10",:class => 'text_area' %>
+	  </div>
+  </div>
+
+
+  <div class="control-group">
+    <div class="controls">
+	   <div class="span3">
+		   RM NORMAL:<%= fconc.radio_button :rm, "normal" %>&nbsp
+	   </div>
+	   <div class="span3">RM ANORMAL:<%= fconc.radio_button :rm, "anormal" %>&nbsp
+	   </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+  <div class="control-group">
+	  <div class="span5">
+	  Paciente con sospecha clínica de:
+	  </div>
+	  <div class="controls">
+	    <%= fconc.text_field :sospecha, :class => 'text_field' %>
+	  </div>
+	</div>
+
+  <div class="control-group">
+	<div class="span4">
+		Correlación clínico imaginológica
+	</div>
+    <div class="controls">
+ 	   SI:<%= fconc.radio_button :correlacion, "si" %>&nbsp
+ 	   NO:<%= fconc.radio_button :correlacion, "no" %>&nbsp
+    </div>
+  </div>
+<% end %>
+
+
+
+<!-- Campos escondidos comunes a todo -->
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :equipment, value: params[:equipmen] %>
+<%= f.hidden_field :patient_id, value: @patient.id %>
+
+equipo <%=params%>
+equipo<%= @report.equipment%>
+<div class="actions">
+  <%= f.submit nil, class: 'btn btn-primary' %>
+</div>
+<% end %>
