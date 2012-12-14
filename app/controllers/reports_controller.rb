@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
 
   before_filter :find_patient
+  before_filter :laterality
   before_filter :find_user, :only => [:edit, :update]
 
   # GET /reports
@@ -100,5 +101,9 @@ class ReportsController < ApplicationController
 
   def find_user
     @user = User.where(id: current_user.id)
+  end
+
+  def laterality
+    @laterality = [["No", ""], ["Derecha", "der"], ["Izquierda", "izq"], ["Bilateral", "bilat"]]
   end
 end

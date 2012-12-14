@@ -7,7 +7,7 @@
   <dd><%=@report.created_at %></dd>
 </dl>
 
-<h5>1. Esclerosis hipocampal:</h5>
+<h4>1. Esclerosis hipocampal:</h4>
 <dl class="dl-horizontal">
 	<dt><strong>Atrofia hipocampo a ojo desnudo </strong></dt>
 	<dd><%=@report.esclerosi.atrofia_sunj %></dd>
@@ -17,16 +17,11 @@
 	<dd><%=@report.esclerosi.estructura_anormal%></dd>
 	<dt><strong>Escriba el hallazgo extra hipocampal encontrado:</dt></strong>
 	<dd><%=@report.esclerosi.hallazgos_extra%></dd>
-	<dt></strong>Tamaño del hipocampo por volumetría derecho</strong></dt>
-	<dd><%=@report.esclerosi.volumenhipoder%></dd>
-	<dt></strong>Tamaño del hipocampo por volumetría izquierdo</strong></dt>
-	<dd><%=@report.esclerosi.volumenhipoiz%></dd>
-	
 	<dt><strong>Esclerosis hipocampal:</strong></dt>
 	<dd><%=@report.esclerosi.esclerosis%></dd>
 </dl>
 <h6>Conclusión</h6>
-<h5>2. Displasia cortical focal (DCF)</h5>
+<h4>2. Displasia cortical focal (DCF)</h4>
 	<dl class="dl-horizontal">
 	<dt><strong>Hiperintensidad sustancia blanca en FLAIR y T2:</strong></dt>
 	<dd><%=@report.displasium.hiperintensidad%></dd>
@@ -46,10 +41,10 @@
 	<dt><strong>Lóbulo</strong></dt>
 	<dd><%=@report.displasium.dislobulo%></dd>
 	<dt><strong>Hemisferio</strong></dt>
-	<dd><%=@report.displasium.dishemisferio%></dd> 
+	<dd><%=@report.displasium.dishemisferio%></dd>
   </dl>
-  
-<h5>3. Tumor de bajo grado</h5>
+
+<h4>3. Tumor de bajo grado</h4>
 <dl class="dl-horizontal">
 	<dt><strong>Hiperintensidad en T2</strong></dt>
 	<dd><%=@report.tumor.hiperintensidad%></dd>
@@ -72,7 +67,7 @@
 	<dd><%=@report.tumor.hemisferio%></dd>
 </dl>
 
-<h5>4. Malformación vascular (MV)</h5>
+<h4>4. Malformación vascular (MV)</h4>
 <dl class="dl-horizontal">
 	<dt><strong>Centro hiperintenso</strong></dt>
 	<dd><%=@report.malformacion.centro_hipert%></dd>
@@ -84,7 +79,7 @@
 	<dd><%=@report.malformacion.vaso%></dd>
 	<h6>Conclusiones</h6>
 	<dt><strong>Hallazgos sugestivos de MV</strong></dt>
-	<dd><%=@report.malformacion.hallazgo_mv%></dd> 
+	<dd><%=@report.malformacion.hallazgo_mv%></dd>
 	<dt><strong>Ubicada en la circunvolución:</strong></dt>
 	<dd><%=@report.malformacion.circunvolucion%></dd>
 	<dt><strong>Lóbulo</strong></dt>
@@ -93,7 +88,7 @@
 	<dd><%=@report.malformacion.hemisferio%></dd>
   </dl>
 
-  <h5>4. Conclusión</h5>
+  <h4>4. Conclusión</h4>
   <dl class="dl-horizontal">
 	<dt><strong>Observaciones Adicionales</strong></dt>
 	<dd><%=@report.conclusion.observaciones%></dd>

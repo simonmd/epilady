@@ -9,4 +9,5 @@ class Displasium < ActiveRecord::Base
     :reformateo,
     :transmato,
     :report_id
+
 end
